@@ -1,15 +1,14 @@
 //
-//  LocationsCell.swift
+//  FiveDaysDetailsCell.swift
 //  WeatherForecast
 //
-//  Created by Vaibhav on 26/03/21.
+//  Created by Vaibhav Sharma on 28/03/21.
 //
 
 import UIKit
 
-class LocationsCell: UITableViewCell {
+class FiveDaysDetailsCell: UITableViewCell {
 
-    @IBOutlet weak var cityNameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +20,8 @@ class LocationsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(data: LocationDetails){
-        self.cityNameLbl.text = data.name ?? ""
+    func setData(data: WeatherData){
+        
     }
     
 }

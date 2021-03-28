@@ -9,32 +9,90 @@ import UIKit
 
 class CityViewController: RootViewController {
 
+    @IBOutlet weak var detailsTableView: UITableView!
+    
+    
+    var weatherData: WeatherData?
     var data = LocationDetails()
+    let tempCellId = "TempCell"
+    let weatherDetailsCellId = "WeatherDetailsCell"
+    let fiveDaysDataCellId = "FiveDaysDetailsCell"
+    
+    var fiveDayData: WeatherData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setTitle("City")
+        self.setTitle(data.name ?? "")
         self.addBackButton()
         let getCityDataUrl = "http://api.openweathermap.org/data/2.5/weather?lat=\(data.lat ?? "")&lon=\(data.long ?? "")&appid=fae7190d7e6433ec3a45285ffcf55c86"
-        print(data.lat ?? "")
-        print(data.long ?? "")
+        
         // http://api.openweathermap.org/data/2.5/forecast/daily?q=jaipur&cnt=7&appid=fae7190d7e6433ec3a45285ffcf55c86
         
-        // by geo cordinates
-        //api.openweathermap.org/data/2.5/forecast/daily?lat=22.572645&lon=88.363892&cnt=5&appid=fae7190d7e6433ec3a45285ffcf55c86
+//        http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&cnt=5&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric
         
-//        http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric
-        /*Services.postAction(params: ["":""], url: getCityDataUrl) { (response, status) in
-            if status{
-//                self.weatherData = response!
-                //print(response!)
-            }
-        }*/
+        //http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&cnt=5&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric
         
+        // regsitering tableview cell
+        self.registerCells()
         Services.getWeatherData(url: getCityDataUrl) { (response) in
             print(response )
+            
+            DispatchQueue.main.async {
+                self.weatherData = response
+                self.detailsTableView.reloadData()
+                self.getFiveDayData()
+            }
+            
         }
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    func getFiveDayData(){
+        Services.getFiveDayWeatherData(url: "http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&cnt=5&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric") { (response) in
+            print(response)
+            
+            DispatchQueue.main.async {
+                self.fiveDayData = response
+                self.detailsTableView.reloadData()
+            }
+            
+        }
+    }
+    
+    func registerCells(){
+        detailsTableView.registerCellNib(nibName: tempCellId)
+        detailsTableView.registerCellNib(nibName: weatherDetailsCellId)
+        detailsTableView.registerCellNib(nibName: fiveDaysDataCellId)
+    }
 
+}
+
+
+//MARK:- Tableview delegate and datasource methods
+extension CityViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        if indexPath.row == 0{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: tempCellId) as? TempCell
+            cell?.setData(data: self.weatherData ?? WeatherData())
+            cell?.selectionStyle = .default
+            return cell!
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: weatherDetailsCellId) as? WeatherDetailsCell
+            cell?.setData(data: self.weatherData ?? WeatherData())
+            cell?.selectionStyle = .default
+            return cell!
+        }
+        
+    }
+    
 }

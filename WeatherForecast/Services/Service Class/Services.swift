@@ -51,9 +51,21 @@ class Services {
     static func getWeatherData(url: String, completion: @escaping (WeatherData) -> Void){
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
-                if let response = response {
-                    print(data)
+                if let data = data {
+                    do {
+                        let res = try JSONDecoder().decode(WeatherData.self, from: data)
+                        return completion(res)
+                    } catch let error {
+                        print(error)
+                    }
                 }
+            }.resume()
+        }
+    }
+    
+    static func getFiveDayWeatherData(url: String, completion: @escaping (WeatherData?) -> Void){
+        if let url = URL(string: url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
                         let res = try JSONDecoder().decode(WeatherData.self, from: data)

@@ -22,13 +22,16 @@ class AddLocationViewController: RootViewController {
     var delegate: AddDesiredLocation?
     var location: LocationDetails?
     var addBarBtn: UIBarButtonItem?
+    var prev_loc: Locations?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle("Add Location")
         self.addBackButton()
+        addBarBtn = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addLocation(_:)))
+        
+        addBarBtn?.tintColor = .white
         addBarBtn?.isEnabled = false
-        addBarBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addLocation(_:)))
         self.navigationItem.rightBarButtonItem = self.addBarBtn
         // Do any additional setup after loading the view.
     }
@@ -54,14 +57,19 @@ class AddLocationViewController: RootViewController {
             let touchPoint = longGesture.location(in: mapView)
             let wayCoords = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             let location = CLLocation(latitude: wayCoords.latitude, longitude: wayCoords.longitude)
+            // kasdfkdsahfkahsdkfhka
+            print("Git test")
             
             self.addAnnotation(location: location.coordinate)
             self.coordinates = location.coordinate
             self.getAddressFromLatLon(latitude: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)") { (name) in
                 print("####", name)
                 self.location = LocationDetails(name, "\(location.coordinate.latitude)", "\(location.coordinate.longitude)")
-                self.addBarBtn?.isEnabled = true
+                let authen = self.prev_loc?.locations?.filter({$0.name == name})
+                self.addBarBtn?.isEnabled = authen?.count == 0 ? true : false
             }
+            
+            
         }else if longGesture.state == .ended{
             print("touch ended")
         }

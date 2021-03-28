@@ -11,13 +11,12 @@ class HomeViewController: RootViewController {
 
     @IBOutlet weak var bookmrkTableView: UITableView!
     var data: Locations?
-    var weatherData: WeatherData?
     var cellIdentifire = "LocationsCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle("Weather Forecast")
-        self.view.backgroundColor  = UIColor.init(hex: "627e75")
+        self.view.backgroundColor = UIColor.init(hex: AppColors.bg_color.rawValue)
         
         // registering tableview cell
         bookmrkTableView.registerCellNib(nibName: cellIdentifire)
@@ -25,11 +24,7 @@ class HomeViewController: RootViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "help"), style: .plain, target: self, action: #selector(helpAction(_:)))
         
         // getting data initially
-        self.loadJson(fileName: LOCATIONS_JSON) { (response: Locations?, status) in
-            if status{
-                self.data = response
-            }
-        }
+        self.data = self.loadJson(fileName: LOCATIONS_JSON)
             
         // Do any additional setup after loading the view.
     }
@@ -50,7 +45,7 @@ extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire) as? LocationsCell
-        cell?.nameLbl.text = self.data?.locations?[indexPath.row].name ?? ""
+        cell?.setData(data: self.data?.locations?[indexPath.row] ?? LocationDetails())
         cell?.selectionStyle = .default
         return cell!
     }
@@ -65,6 +60,13 @@ extension HomeViewController: UITableViewDelegate{
         let nextView = CityViewController(nibName: "CityViewController", bundle: nil)
         nextView.data = self.data?.locations![indexPath.row] ?? LocationDetails()
         self.navigationController?.pushViewController(nextView, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.data?.locations?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
@@ -83,6 +85,7 @@ extension HomeViewController{
     @objc func addAction(_ sender: UIButton){
         let nextView = AddLocationViewController(nibName: "AddLocationViewController", bundle: nil)
         nextView.delegate = self
+        nextView.prev_loc = self.data // sending bookedmarked location to authenticate newly adding locations
         self.navigationController?.pushViewController(nextView, animated: true)
     }
 }

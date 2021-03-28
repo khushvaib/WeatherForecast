@@ -7,18 +7,19 @@
 
 // MARK: - WeatherData
 struct WeatherData: Codable {
-    var coord: Coord
-    var weather: [Weather]
-    var base: String
-    var main: Main
-    var visibility: Int
-    var wind: Wind
-    var clouds: Clouds
-    var dt: Int
-    var sys: Sys
-    var timezone, id: Int
-    var name: String
-    var cod: Int
+    
+    var coord: Coord?
+    var weather: [Weather]?
+    var base: String?
+    var main: Main?
+    var visibility: Int?
+    var wind: Wind?
+    var clouds: Clouds?
+    var dt: Int?
+    var sys: Sys?
+    var timezone, id: Int?
+    var name: String?
+    var cod: Int?
 }
 
 // MARK: - Clouds

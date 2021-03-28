@@ -28,7 +28,7 @@
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.9137254901960784" green="0.76862745098039209" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.38431372549019605" green="0.49411764705882355" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fiq-s1-aAT" secondAttribute="trailing" id="38Q-cM-leK"/>
                 <constraint firstItem="Fiq-s1-aAT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nq6-pD-Ick"/>
