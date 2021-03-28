@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FooterView" customModule="WeatherForecast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-E5-42B">
+                    <rect key="frame" x="0.0" y="0.5" width="375" height="49.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkP-Cq-Ha6">
+                            <rect key="frame" x="117" y="0.0" width="141" height="49.5"/>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                            <state key="normal" title="          tap to add          ">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lkP-Cq-Ha6" firstAttribute="centerX" secondItem="Wgh-E5-42B" secondAttribute="centerX" id="Hcq-5v-XWt"/>
+                        <constraint firstAttribute="bottom" secondItem="lkP-Cq-Ha6" secondAttribute="bottom" id="Yaw-DN-IhV"/>
+                        <constraint firstItem="lkP-Cq-Ha6" firstAttribute="top" secondItem="Wgh-E5-42B" secondAttribute="top" id="gfx-VD-9tG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Wgh-E5-42B" secondAttribute="bottom" id="Gpi-8r-Xlv"/>
+                <constraint firstItem="Wgh-E5-42B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bSr-eH-31Z"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Wgh-E5-42B" secondAttribute="trailing" id="r6E-4d-7b0"/>
+                <constraint firstItem="Wgh-E5-42B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="0.5" id="uWm-aY-Gq2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addBtn" destination="lkP-Cq-Ha6" id="AuT-oN-Yr3"/>
+            </connections>
+            <point key="canvasLocation" x="-4" y="78"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
