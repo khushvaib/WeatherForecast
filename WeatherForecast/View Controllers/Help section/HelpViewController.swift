@@ -30,7 +30,7 @@ func loadHtmlString() -> String{
         <title>Weather Forecast</title>
     </head>
     <body style='font-family:Arial'>
-                <font size='7' color= 'white'>
+                <font size='6' color= 'white'>
         <p>
     <h1>Home Screen:</h4>
     1. List of previously bookmarked locations will be shown on this screen.
