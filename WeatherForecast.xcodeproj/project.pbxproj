@@ -190,7 +190,7 @@
 				182597E3260DE5A500E379AF /* Other Resources */,
 				182597C1260DC87B00E379AF /* Helper Classes */,
 				182597C2260DC87B00E379AF /* Services */,
-				182597C3260DC87B00E379AF /* View Controllers */,
+				5533FF12261248B300F155E1 /* mvvm */,
 				55453298261196660083DE3F /* View */,
 				1825978E260DC46000E379AF /* AppDelegate.swift */,
 				18259790260DC46000E379AF /* SceneDelegate.swift */,
@@ -310,6 +310,14 @@
 				55710C5E2610887900B15083 /* CityViewModel.swift */,
 			);
 			path = "City Weather Details";
+			sourceTree = "<group>";
+		};
+		5533FF12261248B300F155E1 /* mvvm */ = {
+			isa = PBXGroup;
+			children = (
+				182597C3260DC87B00E379AF /* View Controllers */,
+			);
+			path = mvvm;
 			sourceTree = "<group>";
 		};
 		55453298261196660083DE3F /* View */ = {
