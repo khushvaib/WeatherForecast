@@ -34,7 +34,7 @@ class HomeViewController: RootViewController {
     
 }
 
-//MARK:- Tableview delegate and datasource methods
+//MARK:- Tableview datasource methods
 extension HomeViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,10 +49,9 @@ extension HomeViewController: UITableViewDataSource{
         return cell!
     }
     
-    
-    
 }
 
+//MARK:- Tableview delegate methods
 extension HomeViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -69,6 +68,7 @@ extension HomeViewController: UITableViewDelegate{
     }
 }
 
+//MARK:- Tableview footer section
 extension HomeViewController{
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50
@@ -94,16 +94,5 @@ extension HomeViewController: AddDesiredLocation{
     func addLocation(loc: LocationDetails) {
         self.data?.locations?.append(loc)
         bookmrkTableView.reloadData()
-    }
-}
-
-struct Locations: Codable{
-    var locations: [LocationDetails]?
-}
-
-struct LocationDetails: Codable{
-    var name, lat, long: String?
-    init(_ name: String = "",_ lat: String = "",_ long: String = "") {
-        self.name = name; self.lat = lat; self.long = long
     }
 }

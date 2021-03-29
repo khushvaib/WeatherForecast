@@ -53,6 +53,7 @@
 		552F5D40260F63940014EF32 /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552F5D3A260F63940014EF32 /* CityViewController.xib */; };
 		552F5D57260F66CC0014EF32 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552F5D56260F66CC0014EF32 /* FooterView.swift */; };
 		552F5D5C260F66DE0014EF32 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552F5D5B260F66DE0014EF32 /* FooterView.xib */; };
+		5533FF0B261245E600F155E1 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533FF0A261245E600F155E1 /* Locations.swift */; };
 		55678D34260F995000E4A5B2 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55678D32260F995000E4A5B2 /* AddLocationViewController.swift */; };
 		55678D35260F995000E4A5B2 /* AddLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55678D33260F995000E4A5B2 /* AddLocationViewController.xib */; };
 		55678D3A260FA5EA00E4A5B2 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55678D39260FA5EA00E4A5B2 /* MapAnnotation.swift */; };
@@ -127,6 +128,7 @@
 		552F5D3A260F63940014EF32 /* CityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityViewController.xib; sourceTree = "<group>"; };
 		552F5D56260F66CC0014EF32 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		552F5D5B260F66DE0014EF32 /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		5533FF0A261245E600F155E1 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		55678D32260F995000E4A5B2 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		55678D33260F995000E4A5B2 /* AddLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLocationViewController.xib; sourceTree = "<group>"; };
 		55678D39260FA5EA00E4A5B2 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				552F5D2F260F61F00014EF32 /* WeatherData.swift */,
+				5533FF0A261245E600F155E1 /* Locations.swift */,
 			);
 			path = "Response Model";
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				55710C732610A10400B15083 /* WeatherDetailsCell.swift in Sources */,
 				552F5D1F260F49DA0014EF32 /* Extentions.swift in Sources */,
 				552F5D3B260F63940014EF32 /* CityViewController.swift in Sources */,
+				5533FF0B261245E600F155E1 /* Locations.swift in Sources */,
 				55710C672610A0D200B15083 /* TempCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
