@@ -25,7 +25,7 @@ class CityViewController: RootViewController {
         
         self.setTitle(data.name ?? "")
         self.addBackButton()
-        let getCityDataUrl = "http://api.openweathermap.org/data/2.5/weather?lat=\(data.lat ?? "")&lon=\(data.long ?? "")&appid=fae7190d7e6433ec3a45285ffcf55c86"
+        let apiUrl = "\(base_url)lat=\(data.lat ?? "")&lon=\(data.long ?? "")&appid=\(api_key)"
         
         // http://api.openweathermap.org/data/2.5/forecast/daily?q=jaipur&cnt=7&appid=fae7190d7e6433ec3a45285ffcf55c86
         
@@ -35,33 +35,33 @@ class CityViewController: RootViewController {
         
         // regsitering tableview cell
         self.registerCells()
-        Services.getWeatherData(url: getCityDataUrl) { (response) in
+       /* Services.getWeatherData(url: getCityDataUrl) { (response) in
             print(response )
             
             DispatchQueue.main.async {
                 self.weatherData = response
                 self.detailsTableView.reloadData()
-                self.getFiveDayData()
+//                self.getFiveDayData()
             }
             
+        }*/
+        
+        Services.getApiData(url: apiUrl) { (response: WeatherData?) in
+            self.weatherData = response!
+            DispatchQueue.main.async {
+                self.detailsTableView.reloadData()
+            }
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     func getFiveDayData(){
-        Services.getFiveDayWeatherData(url: "http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&cnt=5&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric") { (response) in
-            print(response)
-            
-            DispatchQueue.main.async {
-                self.fiveDayData = response
-                self.detailsTableView.reloadData()
-            }
-            
+        
+        Services.getApiData(url: "http://api.openweathermap.org/data/2.5/forecast?lat=22.572645&lon=88.363892&cnt=5&appid=\(api_key)&units=metric") { (response: WeatherDataList?) in
+            print(response!)
         }
     }
     
+    // register cells
     func registerCells(){
         detailsTableView.registerCellNib(nibName: tempCellId)
         detailsTableView.registerCellNib(nibName: weatherDetailsCellId)

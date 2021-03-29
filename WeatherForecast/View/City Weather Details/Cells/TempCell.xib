@@ -38,8 +38,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z82-TM-Fel">
-                                <rect key="frame" x="217" y="10" width="83" height="30"/>
-                                <state key="normal" title="Change unit">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -50,20 +50,22 @@
                         <viewLayoutGuide key="safeArea" id="zsz-7s-bYd"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Z82-TM-Fel" secondAttribute="trailing" constant="20" id="DQG-jX-YGx"/>
-                            <constraint firstItem="Z82-TM-Fel" firstAttribute="top" secondItem="nih-oK-1W4" secondAttribute="top" constant="10" id="TSG-ZW-0cJ"/>
+                            <constraint firstItem="Z82-TM-Fel" firstAttribute="leading" secondItem="zsz-7s-bYd" secondAttribute="leading" id="HDj-ht-Fqp"/>
                             <constraint firstItem="Glm-gC-DrG" firstAttribute="trailing" secondItem="Lcu-8w-ABK" secondAttribute="trailing" constant="10" id="U85-kC-mqm"/>
                             <constraint firstItem="Lcu-8w-ABK" firstAttribute="top" secondItem="zsz-7s-bYd" secondAttribute="top" constant="42" id="UNg-13-bmo"/>
+                            <constraint firstItem="Z82-TM-Fel" firstAttribute="bottom" secondItem="zsz-7s-bYd" secondAttribute="bottom" id="X2m-Z3-a0E"/>
+                            <constraint firstItem="Z82-TM-Fel" firstAttribute="top" secondItem="zsz-7s-bYd" secondAttribute="top" id="XYy-8H-HE7"/>
                             <constraint firstItem="t2y-Zg-tEI" firstAttribute="top" secondItem="Glm-gC-DrG" secondAttribute="top" constant="2" id="ag6-eG-kOc"/>
                             <constraint firstItem="Lcu-8w-ABK" firstAttribute="centerX" secondItem="nih-oK-1W4" secondAttribute="centerX" id="d62-Yd-VJu"/>
                             <constraint firstItem="Lcu-8w-ABK" firstAttribute="centerY" secondItem="nih-oK-1W4" secondAttribute="centerY" id="fQa-S2-Ij1"/>
                             <constraint firstItem="Glm-gC-DrG" firstAttribute="top" secondItem="Lcu-8w-ABK" secondAttribute="top" id="frQ-IM-vyr"/>
+                            <constraint firstItem="zsz-7s-bYd" firstAttribute="trailing" secondItem="Z82-TM-Fel" secondAttribute="trailing" id="jpn-Au-qvT"/>
                             <constraint firstItem="zsz-7s-bYd" firstAttribute="bottom" secondItem="Lcu-8w-ABK" secondAttribute="bottom" constant="42" id="lOd-Z5-4oJ"/>
                             <constraint firstItem="t2y-Zg-tEI" firstAttribute="leading" secondItem="Glm-gC-DrG" secondAttribute="trailing" constant="2" id="xpf-6V-qI7"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.38431372549999998" green="0.4941176471" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="nih-oK-1W4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3Au-n2-3Ak"/>
                     <constraint firstAttribute="bottom" secondItem="nih-oK-1W4" secondAttribute="bottom" id="FJX-H6-5O0"/>
@@ -72,6 +74,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="tempLbl" destination="Lcu-8w-ABK" id="wQf-no-Qug"/>
                 <outlet property="unit" destination="t2y-Zg-tEI" id="GGx-Kp-ye2"/>

@@ -5,6 +5,26 @@
 //  Created by Vaibhav Sharma on 27/03/21.
 //
 
+//******
+// MARK: - WeatherDataList
+struct WeatherDataList: Codable {
+    var cod: String?
+    var message, cnt: Int?
+    var list: [WeatherData]?
+    var city: City?
+}
+
+// MARK: - City
+struct City: Codable {
+    var id: Int
+    var name: String
+    var coord: Coord
+    var country: String
+    var population, timezone, sunrise, sunset: Int
+}
+
+// ******
+
 // MARK: - WeatherData
 struct WeatherData: Codable {
     

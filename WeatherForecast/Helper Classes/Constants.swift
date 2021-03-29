@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 
-let AppName = Bundle.main.infoDictionary![String(kCFBundleNameKey)]
-let API_URL = "https://itunes.apple.com/search?term=Michael+jackson"
-typealias TableViewMethods = UITableViewDelegate & UITableViewDataSource
+let api_key = "fae7190d7e6433ec3a45285ffcf55c86"
+let base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
 // files
 let LOCATIONS_JSON = "Locations"

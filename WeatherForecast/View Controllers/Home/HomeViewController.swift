@@ -16,7 +16,6 @@ class HomeViewController: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle("Weather Forecast")
-        self.view.backgroundColor = UIColor.init(hex: AppColors.bg_color.rawValue)
         
         // registering tableview cell
         bookmrkTableView.registerCellNib(nibName: cellIdentifire)
@@ -25,12 +24,12 @@ class HomeViewController: RootViewController {
         
         // getting data initially
         self.data = self.loadJson(fileName: LOCATIONS_JSON)
-            
-        // Do any additional setup after loading the view.
     }
     
     @objc func helpAction(_ sender: UIBarButtonItem){
         print("helpAction")
+        let nextView = HelpViewController(nibName: "HelpViewController", bundle: nil)
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
 }

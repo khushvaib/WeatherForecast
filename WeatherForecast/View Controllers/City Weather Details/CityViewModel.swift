@@ -20,4 +20,8 @@ class CityViewModel{
         let fahren = (kelvins - 273.15) * 9/5 + 32
         return fahren
     }
+    
+    func miles_per_hour(meterPerSec: Double) -> Double{
+        return meterPerSec * 2.237
+    }
 }

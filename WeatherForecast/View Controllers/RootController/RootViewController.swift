@@ -12,24 +12,17 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configNavigation()
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.init(hex: AppColors.bg_color.rawValue)
     }
     
 
     func configNavigation(){
-        /**
-         #627e75     (98,126,117)
-        #d2a985     (210,169,133)
-        #226ba3     (34,107,163)
-        #e9c429     (233,196,41)
-        #913639     (145,54,57)
-         */
         self.navigationController?.navigationBar.barTintColor = UIColor.init(hex: "627e75")
         //navigation bar configuraiotn settings
         self.navigationController?.navigationBar.isTranslucent = false
         let attrs:[NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "Arial Rounded MT Bold", size: 20.0) as Any
+            NSAttributedString.Key.font: UIFont(name: "Arial Rounded MT Bold", size: 22.0) as Any
         ]
         navigationController?.navigationBar.titleTextAttributes = attrs
         
